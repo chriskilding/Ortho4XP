@@ -6,8 +6,8 @@ import random
 import requests
 import numpy
 from shapely import geometry, ops
-import O4_UI_Utils as UI
-import O4_File_Names as FNAMES
+import src.O4_UI_Utils as UI
+import src.O4_File_Names as FNAMES
 
 overpass_servers={
         "DE":"http://overpass-api.de/api/interpreter",

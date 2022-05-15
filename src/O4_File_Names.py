@@ -1,11 +1,11 @@
 import os
 import sys
 from math import floor
+from src.directory import value as Ortho4XP_dir
 
 g2xpl_16_prefix=''
 g2xpl_16_suffix=''
 
-Ortho4XP_dir  =  '..' if getattr(sys,'frozen',False) else '.'
 Preview_dir   =  os.path.join(Ortho4XP_dir, 'Previews')
 Provider_dir  =  os.path.join(Ortho4XP_dir, 'Providers')
 Extent_dir    =  os.path.join(Ortho4XP_dir, 'Extents')

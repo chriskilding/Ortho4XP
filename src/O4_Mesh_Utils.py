@@ -6,13 +6,13 @@ import subprocess
 import numpy
 import requests
 from math import sqrt, cos, pi
-import O4_DEM_Utils as DEM
-import O4_UI_Utils as UI
-import O4_File_Names as FNAMES
-import O4_Geo_Utils as GEO
-import O4_Vector_Utils as VECT
-import O4_OSM_Utils as OSM
-import O4_Version
+import src.O4_DEM_Utils as DEM
+import src.O4_UI_Utils as UI
+import src.O4_File_Names as FNAMES
+import src.O4_Geo_Utils as GEO
+import src.O4_Vector_Utils as VECT
+import src.O4_OSM_Utils as OSM
+import src.O4_Version
 
 if 'dar' in sys.platform:
     Triangle4XP_cmd = os.path.join(FNAMES.Utils_dir,"Triangle4XP.app ")
@@ -227,7 +227,7 @@ def write_mesh_file(tile,vertices):
     nbr_vert=len(vertices)//6
     nbr_tri=int(f_ele.readline().split()[0])
     f=open(FNAMES.mesh_file(tile.build_dir,tile.lat,tile.lon),"w")
-    f.write("MeshVersionFormatted "+O4_Version.version+"\n")
+    f.write("MeshVersionFormatted "+src.O4_Version.version+"\n")
     f.write("Dimension 3\n\n")
     f.write("Vertices\n")
     f.write(str(nbr_vert)+"\n")

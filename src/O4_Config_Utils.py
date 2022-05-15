@@ -3,14 +3,14 @@ from math import ceil
 import tkinter as tk
 import tkinter.ttk as ttk
 from   tkinter import RIDGE,N,S,E,W,filedialog
-import O4_File_Names as FNAMES
-import O4_UI_Utils as UI
-import O4_DEM_Utils as DEM
-import O4_OSM_Utils as OSM
-import O4_Vector_Map as VMAP
-import O4_Imagery_Utils as IMG
-import O4_Tile_Utils as TILE
-import O4_Overlay_Utils as OVL
+import src.O4_File_Names as FNAMES
+import src.O4_UI_Utils as UI
+import src.O4_DEM_Utils as DEM
+import src.O4_OSM_Utils as OSM
+import src.O4_Vector_Map as VMAP
+import src.O4_Imagery_Utils as IMG
+import src.O4_Tile_Utils as TILE
+import src.O4_Overlay_Utils as OVL
 
 
 cfg_vars={

@@ -13,8 +13,8 @@ try:
 except:
     has_gdal=False
 from PIL import Image
-import O4_UI_Utils as UI
-import O4_File_Names as FNAMES
+import src.O4_UI_Utils as UI
+import src.O4_File_Names as FNAMES
 
 available_sources=(
                  'View','Viewfinderpanoramas (J. de Ferranti) - mostly worldwide',

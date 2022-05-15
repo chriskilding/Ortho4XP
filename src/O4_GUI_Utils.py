@@ -8,17 +8,17 @@ import tkinter as tk
 from   tkinter import RIDGE,N,S,E,W,NW,ALL,END,LEFT,RIGHT,CENTER,HORIZONTAL,filedialog
 import tkinter.ttk as ttk
 from PIL import Image, ImageTk
-import O4_Version 
-import O4_Imagery_Utils as IMG
-import O4_File_Names as FNAMES
-import O4_Geo_Utils as GEO
-import O4_Vector_Utils as VECT
-import O4_Vector_Map as VMAP
-import O4_Mesh_Utils as MESH
-import O4_Mask_Utils as MASK
-import O4_Tile_Utils as TILE
-import O4_UI_Utils as UI
-import O4_Config_Utils as CFG
+import src.O4_Version
+import src.O4_Imagery_Utils as IMG
+import src.O4_File_Names as FNAMES
+import src.O4_Geo_Utils as GEO
+import src.O4_Vector_Utils as VECT
+import src.O4_Vector_Map as VMAP
+import src.O4_Mesh_Utils as MESH
+import src.O4_Mask_Utils as MASK
+import src.O4_Tile_Utils as TILE
+import src.O4_UI_Utils as UI
+import src.O4_Config_Utils as CFG
 
 # Set OsX=True if you prefer the OsX way of drawing existing tiles but are on Linux or Windows.
 OsX='dar' in sys.platform
@@ -53,7 +53,7 @@ class Ortho4XP_GUI(tk.Tk):
         self.rowconfigure(1,weight=1)
         
         # Resources
-        self.title('Ortho4XP '+O4_Version.version)
+        self.title('Ortho4XP '+src.O4_Version.version)
         self.folder_icon=tk.PhotoImage(file=os.path.join(FNAMES.Utils_dir,'Folder.gif'))
         self.earth_icon=tk.PhotoImage(file=os.path.join(FNAMES.Utils_dir,'Earth.gif'))
         self.loupe_icon=tk.PhotoImage(file=os.path.join(FNAMES.Utils_dir,'Loupe.gif'))

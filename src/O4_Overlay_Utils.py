@@ -3,8 +3,8 @@ import os
 import shutil
 import sys
 import subprocess
-import O4_File_Names as FNAMES
-import O4_UI_Utils as UI
+import src.O4_File_Names as FNAMES
+import src.O4_UI_Utils as UI
 
 # the following is meant to be modified directly by users who need it (in the config window, not here!)
 ovl_exclude_pol=[0]

@@ -10,11 +10,11 @@ from math import ceil, log, tan, pi
 import numpy
 from PIL import Image, ImageFilter, ImageEnhance,  ImageOps
 Image.MAX_IMAGE_PIXELS = 1000000000 # Not a decompression bomb attack!
-import O4_UI_Utils as UI
-import O4_Geo_Utils as GEO
-import O4_File_Names as FNAMES
+import src.O4_UI_Utils as UI
+import src.O4_Geo_Utils as GEO
+import src.O4_File_Names as FNAMES
 try:
-    import O4_Custom_URL as URL
+    import src.O4_Custom_URL as URL
     has_URL=True
 except:
     try:
@@ -25,11 +25,11 @@ except:
     except:
         print("ERROR: Providers/O4_Custom_URL.py contains invalid code. The corresponding providers won't probably work.")
         has_URL=False
-import O4_Vector_Utils as VECT
-import O4_Mesh_Utils as MESH
-import O4_OSM_Utils as OSM
-import O4_Mask_Utils as MASK
-from O4_Parallel_Utils import parallel_execute
+import src.O4_Vector_Utils as VECT
+import src.O4_Mesh_Utils as MESH
+import src.O4_OSM_Utils as OSM
+import src.O4_Mask_Utils as MASK
+from src.O4_Parallel_Utils import parallel_execute
 
 http_timeout=10
 check_tms_response=False

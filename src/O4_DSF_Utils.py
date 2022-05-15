@@ -8,10 +8,10 @@ from PIL import Image, ImageDraw
 from collections import defaultdict
 import struct
 import hashlib
-import O4_File_Names as FNAMES
-import O4_Geo_Utils as GEO
-import O4_Mask_Utils as MASK
-import O4_UI_Utils as UI
+import src.O4_File_Names as FNAMES
+import src.O4_Geo_Utils as GEO
+import src.O4_Mask_Utils as MASK
+import src.O4_UI_Utils as UI
 
 quad_init_level=3
 quad_capacity_high=50000

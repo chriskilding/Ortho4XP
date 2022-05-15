@@ -3,8 +3,8 @@ import numpy
 from shapely import geometry, affinity
 from shapely import ops
 from rtree import index
-import O4_UI_Utils as UI
-import O4_Geo_Utils as GEO
+import src.O4_UI_Utils as UI
+import src.O4_Geo_Utils as GEO
 
 # Some functions further down rely not only on a vector structure but also on a
 # metric (distances of course but more importantly angles and normals).

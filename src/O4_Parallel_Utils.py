@@ -1,5 +1,5 @@
 import threading
-import O4_UI_Utils as UI
+import src.O4_UI_Utils as UI
 
 class parallel_worker(threading.Thread):
     def __init__(self,task,queue,progress=None,success=[1]):

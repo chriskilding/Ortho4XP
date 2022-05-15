@@ -1,8 +1,8 @@
 import os
 import sys
 import time
+from src.directory import value as Ortho4XP_dir
 
-Ortho4XP_dir='..' if getattr(sys,'frozen',False) else '.'
 verbosity=1
 red_flag=False
 is_working=False
