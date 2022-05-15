@@ -13,10 +13,10 @@ import src.O4_Config_Utils as CFG  # CFG imported last because it can modify oth
 
 cmd_line="USAGE: Ortho4XP_v130.py lat lon imagery zl (won't read a tile config)\n   OR:  Ortho4XP_v130.py lat lon (with existing tile config file)"
 
-if __name__ == '__main__':
+
+def main():
     if not os.path.isdir(FNAMES.Utils_dir):
-        print("Missing ",FNAMES.Utils_dir,"directory, check your install. Exiting.")
-        sys.exit()
+        raise SystemExit("Missing " + FNAMES.Utils_dir + " directory, check your install. Exiting.")
     for directory in (FNAMES.Preview_dir, FNAMES.Provider_dir, FNAMES.Extent_dir, FNAMES.Filter_dir, FNAMES.OSM_dir,
                       FNAMES.Mask_dir,FNAMES.Imagery_dir,FNAMES.Elevation_dir,FNAMES.Geotiff_dir,FNAMES.Patch_dir,
                       FNAMES.Tile_dir,FNAMES.Tmp_dir):
@@ -25,8 +25,7 @@ if __name__ == '__main__':
                 os.makedirs(directory)
                 print("Creating missing directory",directory)
             except:
-                print("Could not create required directory",directory,". Exit.")
-                sys.exit()
+                raise SystemExit("Could not create required directory " + directory + ". Exit.")
     IMG.initialize_extents_dict()
     IMG.initialize_color_filters_dict()
     IMG.initialize_providers_dict()
@@ -38,18 +37,18 @@ if __name__ == '__main__':
         print("Bon vol!")
     else: # sequel is only concerned with command line
         if len(sys.argv)<3:
-            print(cmd_line); sys.exit()
+            raise SystemExit(cmd_line)
         try:
             lat=int(sys.argv[1])
             lon=int(sys.argv[2])
         except:
-            print(cmd_line); sys.exit()
+            raise SystemExit(cmd_line)
         if len(sys.argv)==3:
             try:
                 tile=CFG.Tile(lat,lon,'')
             except Exception as e:
                 print(e)
-                print("ERROR: could not read tile config file."); sys.exit()
+                raise SystemExit("ERROR: could not read tile config file.")
         else:
             try:
                 provider_code=sys.argv[3]
@@ -58,7 +57,7 @@ if __name__ == '__main__':
                 tile.default_website=provider_code
                 tile.default_zl=zoomlevel
             except:
-                print(cmd_line); sys.exit()
+                raise SystemExit(cmd_line)
         try:
             VMAP.build_poly_file(tile)
             MESH.build_mesh(tile)
@@ -66,6 +65,8 @@ if __name__ == '__main__':
             TILE.build_tile(tile)
             print("Bon vol!")
         except:
-            print("Crash!")
+            raise SystemExit("Crash!")
 
 
+if __name__ == '__main__':
+    main()
