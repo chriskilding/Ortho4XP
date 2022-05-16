@@ -26,7 +26,7 @@ jobs:
       uses: lyricwulf/abc@v1
       with:
         macos: gdal
-        linux: libgdal30
+        linux: libgdal30 libgdal-dev
     - name: Install dependencies
       run: pipenv install --dev
     - name: Install GDAL Python wrapper
