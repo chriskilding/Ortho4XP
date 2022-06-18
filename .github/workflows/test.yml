@@ -19,4 +19,7 @@ jobs:
           python-version: "3.9"
       - name: Install dependencies
         run: poetry install
-# TODO run tests
+      - name: Lint
+        run: poetry run black
+      - name: Test
+        run: poetry run pytest
