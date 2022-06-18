@@ -19,7 +19,9 @@ jobs:
           python-version: "3.9"
       - name: Install dependencies
         run: poetry install
-      - name: Lint
-        run: poetry run black
+      - name: Black
+        run: poetry run black src/
+      - name: MyPy
+        run: poetry run mypy
       - name: Test
         run: poetry run pytest
