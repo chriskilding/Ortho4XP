@@ -75,9 +75,7 @@ def ahaversin(__haversin: float) -> float:
     return acos(1 - 2 * __haversin)
 
 
-def greatcircle_distance(
-    start: tuple, end: tuple
-) -> float:
+def greatcircle_distance(start: tuple, end: tuple) -> float:
     """[summary]
 
     Parameters
@@ -135,7 +133,7 @@ def transform(s_epsg, t_epsg, s_x, s_y):
 ##############################################################################
 
 ##############################################################################
-@functools.lru_cache(maxsize=2 ** 16)
+@functools.lru_cache(maxsize=2**16)
 def gtile_to_wgs84(til_x, til_y, zoomlevel):
     """
     Returns the latitude and longitude of the top left corner of the tile
