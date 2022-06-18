@@ -1,4 +1,4 @@
-name: Test
+name: Build
 
 on: [push, pull_request, workflow_dispatch]
 
@@ -6,7 +6,24 @@ permissions:
   contents: read
 
 jobs:
-  build:
+  test:
+    name: "Test"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Poetry
+        run: pipx install poetry
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          cache: poetry
+          python-version: "3.9"
+      - name: Install dependencies
+        run: poetry install
+      - name: Test
+        run: poetry run pytest
+  black:
+    name: "Black"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -21,7 +38,19 @@ jobs:
         run: poetry install
       - name: Black
         run: poetry run black src/
+  mypy:
+    name: "MyPy"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Poetry
+        run: pipx install poetry
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          cache: poetry
+          python-version: "3.9"
+      - name: Install dependencies
+        run: poetry install
       - name: MyPy
         run: poetry run mypy
-      - name: Test
-        run: poetry run pytest
