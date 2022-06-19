@@ -11,12 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Setup Poetry
-        run: pipx install poetry
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
+      - name: Setup Poetry
+        run: pipx install poetry
       - name: Install dependencies
         run: poetry install
       - name: Test
@@ -26,12 +26,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Setup Poetry
-        run: pipx install poetry
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
+      - name: Setup Poetry
+        run: pipx install poetry
       - name: Install dependencies
         run: poetry install
       - name: Black
@@ -41,12 +41,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Setup Poetry
-        run: pipx install poetry
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
+      - name: Setup Poetry
+        run: pipx install poetry
       - name: Install dependencies
         run: poetry install
       - name: MyPy
