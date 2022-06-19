@@ -75,7 +75,9 @@ def ahaversin(__haversin: float) -> float:
     return acos(1 - 2 * __haversin)
 
 
-def greatcircle_distance(start: tuple, end: tuple) -> float:
+def greatcircle_distance(
+     start: tuple[float, float], end: tuple[float, float]
+ ) -> float:
     """[summary]
 
     Parameters
