@@ -76,8 +76,8 @@ def ahaversin(__haversin: float) -> float:
 
 
 def greatcircle_distance(
-     start: tuple[float, float], end: tuple[float, float]
- ) -> float:
+    start: tuple[float, float], end: tuple[float, float]
+) -> float:
     """[summary]
 
     Parameters
