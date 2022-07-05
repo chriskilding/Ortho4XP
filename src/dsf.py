@@ -203,14 +203,14 @@ def zone_list_to_ortho_dico(tile):
             airport_array[rowmin : rowmax + 1, colmin : colmax + 1] = 1
 
     elif tile.cover_airports_with_highres == "Progressive":
-        UI.vprint(
+        ui.vprint(
             1,
             "-> Auto-generating custom ZL zones along the runways of each"
             " airport.",
         )
         wall_time = time.perf_counter()
-        airport_collection = APT_SRC.AirportCollection(
-            xp_tile=APT_SRC.XPlaneTile(tile.lat, tile.lon),
+        airport_collection = airport_data.AirportCollection(
+            xp_tile=airport_data.XPlaneTile(tile.lat, tile.lon),
             include_surrounding_tiles=True,
         )
         progressive_zones = airport_collection.zone_list(
@@ -226,14 +226,14 @@ def zone_list_to_ortho_dico(tile):
         wall_time_delta = datetime.timedelta(
             seconds=(time.perf_counter() - wall_time)
         )
-        UI.lvprint(0, f"ZL zones computed in {wall_time_delta}s")
+        ui.lvprint(0, f"ZL zones computed in {wall_time_delta}s")
 
     dico_customzl = {}
     dico_tmp = {}
-    til_x_min, til_y_min = GEO.wgs84_to_orthogrid(
+    til_x_min, til_y_min = geo.wgs84_to_orthogrid(
         tile.lat + 1, tile.lon, tile.mesh_zl
     )
-    til_x_max, til_y_max = GEO.wgs84_to_orthogrid(
+    til_x_max, til_y_max = geo.wgs84_to_orthogrid(
         tile.lat, tile.lon + 1, tile.mesh_zl
     )
     base_zone = (
@@ -264,7 +264,7 @@ def zone_list_to_ortho_dico(tile):
 
     for til_x in range(til_x_min, til_x_max + 1, 16):
         for til_y in range(til_y_min, til_y_max + 1, 16):
-            (latp, lonp) = GEO.gtile_to_wgs84(
+            (latp, lonp) = geo.gtile_to_wgs84(
                 til_x + 8, til_y + 8, tile.mesh_zl
             )
             lonp = max(min(lonp, tile.lon + 1), tile.lon)
