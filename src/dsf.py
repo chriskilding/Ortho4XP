@@ -749,7 +749,9 @@ def build_dsf(tile, download_queue):
                     (s, t) = geo.st_coord(
                         node_coords[5 * n + 1],
                         node_coords[5 * n],
-                        *texture_attributes,
+                        texture_attributes[0],
+                        texture_attributes[1],
+                        texture_attributes[2]
                     )
                     # BEWARE : normal coordinates are pointing (EAST,SOUTH) in X-Plane, not (EAST,NORTH) ! (cfr DSF specs), so v -> -v
                     if not tile.imprint_masks_to_dds:  # border_tex
@@ -887,7 +889,9 @@ def build_dsf(tile, download_queue):
                     (s, t) = geo.st_coord(
                         node_coords[5 * n + 1],
                         node_coords[5 * n],
-                        *texture_attributes,
+                        texture_attributes[0],
+                        texture_attributes[1],
+                        texture_attributes[2]
                     )
                     # BEWARE : normal coordinates are pointing (EAST,SOUTH) in X-Plane, not (EAST,NORTH) ! (cfr DSF specs), so v -> -v
                     if tile.experimental_water & 2:
@@ -1029,7 +1033,9 @@ def build_dsf(tile, download_queue):
                 (s, t) = geo.st_coord(
                     node_coords[5 * n + 1],
                     node_coords[5 * n],
-                    *texture_attributes,
+                    texture_attributes[0],
+                    texture_attributes[1],
+                    texture_attributes[2]
                 )
                 # BEWARE : normal coordinates are pointing (EAST,SOUTH) in X-Plane, not (EAST,NORTH) ! (cfr DSF specs), so v -> -v
                 if not tri_type:  # land
